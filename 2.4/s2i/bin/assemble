@@ -8,8 +8,9 @@ echo "---> Enabling s2i support in httpd24 image"
 
 config_s2i
 
-echo "---> Installing application source"
-cp -Rf /tmp/src/. ./
+echo "---> Installing online-console-extensions application source"
+cp -Rf /tmp/src/ui ./
+cp -Rf /tmp/src/${TARGET}/* ./
 
 process_extending_files ${HTTPD_APP_ROOT}/src/httpd-post-assemble/ ${HTTPD_CONTAINER_SCRIPTS_PATH}/post-assemble/
 

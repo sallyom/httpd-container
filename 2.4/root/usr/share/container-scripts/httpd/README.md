@@ -140,3 +140,16 @@ Dockerfile and other sources for this container image are available on
 https://github.com/sclorg/httpd-container.
 In that repository, Dockerfile for CentOS is called Dockerfile, Dockerfile
 for RHEL is called Dockerfile.rhel7 and Dockerfile for Fedora is called Dockerfile.fedora.
+
+
+OpenShift online-console-extensions
+--------
+```
+$ cd 2.4
+$ docker build -t online-extensions .
+$ s2i build https://github.com/openshift/online-console-extensions.git online-extensions online-console-extensions-free -e TARGET=free
+$ docker run -it --entrypoint /bin/bash online-console-extensions-free
+$ s2i build https://github.com/openshift/online-console-extensions.git online-extensions online-console-extensions-paid -e TARGET=paid
+$ docker run -it --entrypoint /bin/bash online-console-extensions-paid
+```
+
